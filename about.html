@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Naim Musa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- تعريف الانيمشن (Keyframes) --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* --- تطبيق الانيمشن --- */
+        .box-animated { animation: fadeInUp 1s ease-out forwards; }
+        .left-col-anim { opacity: 0; animation: slideInLeft 1s ease-out 0.3s forwards; }
+        .right-col-anim { opacity: 0; animation: slideInRight 1s ease-out 0.5s forwards; }
+        .timeline-anim { opacity: 0; animation: fadeInUp 1s ease-out 0.7s forwards; }
+
+        /* --- ستايلات العناصر --- */
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: default;
+        }
+        .tech-tag:hover {
+            background: #4ECDC4;
+            color: #fff;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+
+        .animated-hr {
+            border: 0; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 30px;
+            width: 0; animation: expandWidth 1s ease-out 0.2s forwards;
+        }
+        @keyframes expandWidth { to { width: 100%; } }
+
+        /* --- تنسيق الـ Timeline (الخط الزمني) --- */
+        .timeline-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+            border-left: 2px solid rgba(78, 205, 196, 0.5); 
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: #4ECDC4;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4ECDC4;
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #FFD93D;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            margin: 0 0 5px 0;
+        }
+        .timeline-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Naim Musa</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="box box-animated">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">About Me</h2>
+            <hr class="animated-hr">
+            
+            <div class="about-grid">
+                <div class="about-col left-col-anim">
+                    <h3>I'm <span class="text-highlight">Naim Musa</span></h3>
+                    <h4 style="margin-bottom: 15px; color: #ccc;">Web Developer</h4>
+                    <p style="line-height: 1.6;">Hello! I'm a passionate web developer with a strong foundation in frontend technologies. I love building clean, modern, and responsive websites using the latest design trends like Glassmorphism.</p>
+                    <br>
+                    <p style="line-height: 1.6;">Currently, I am exploring React and backend technologies to become a full-stack developer.</p>
+                    
+                    </div>
+                
+                <div class="about-col right-col-anim" style="border-left: 1px dashed rgba(255,255,255,0.2); padding-left: 20px;">
+                    <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                        <li style="margin-bottom: 12px;"><b style="color: #4ECDC4; width: 90px; display: inline-block;">Age:</b> 23</li>
+                        <li style="margin-bottom: 12px;"><b style="color: #4ECDC4; width: 90px; display: inline-block;">Email:</b> naimm2003musa@gmail.com</li>
+                        <li style="margin-bottom: 12px;"><b style="color: #4ECDC4; width: 90px; display: inline-block;">Location:</b> Turkey</li>
+                        <li style="margin-bottom: 12px;"><b style="color: #4ECDC4; width: 90px; display: inline-block;">Lang:</b> Arabic, Turkish, English</li>
+                    </ul>
+
+                    <div style="margin-top: 25px;">
+                        <p style="margin-bottom: 10px; opacity: 0.8; font-size: 0.9rem;">Favorite Tech Stack:</p>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box timeline-anim" style="margin-top: 20px;">
+            <h2 style="margin-bottom: 20px; font-size: 1.5rem;">Education & Journey</h2>
+            <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 20px;">
+            
+            <div class="timeline-box">
+                <div class="timeline-item">
+                    <span class="timeline-date">2022 - Present</span>
+                    <h3 class="timeline-title">Computer Engineering</h3>
+                    <p class="timeline-desc">Studying Computer Engineering at Düzce University. Focusing on software development, algorithms, and data structures.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-title">Frontend Development Course</h3>
+                    <p class="timeline-desc">Completed an intensive self-study track on HTML, CSS, JavaScript, and React basics.</p>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: transparent;"> 
+                    <span class="timeline-date">2025</span>
+                    <h3 class="timeline-title">Freelancing & Projects</h3>
+                    <p class="timeline-desc">Started building real-world projects and portfolio websites to apply technical skills.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

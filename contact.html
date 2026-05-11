@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Naim Musa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- خلفية متحركة جمالية (Glowing Orbs) --- */
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* الدائرة المشعة 1 */
+        .glow-orb-1 {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: #4ECDC4;
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: -1;
+            animation: moveOrb 10s infinite alternate;
+        }
+
+        /* الدائرة المشعة 2 */
+        .glow-orb-2 {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            background: #FF6B6B;
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: moveOrb 8s infinite alternate-reverse;
+        }
+
+        @keyframes moveOrb {
+            from { transform: translate(0, 0); }
+            to { transform: translate(30px, 30px); }
+        }
+
+        /* --- تنسيق الحاوية الرئيسية --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* العمود الأيمن (الفورم) أعرض قليلاً */
+            gap: 40px;
+            margin-top: 30px;
+            align-items: start;
+        }
+
+        /* --- الصندوق الأيسر: معلومات الاتصال --- */
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: rgba(78, 205, 196, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+            color: #4ECDC4;
+            transition: 0.3s;
+        }
+
+        .info-item:hover .icon-circle {
+            background: #4ECDC4;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .info-text p {
+            font-size: 0.95rem;
+            color: #ccc;
+            opacity: 0.8;
+        }
+
+        /* --- أيقونات السوشيال ميديا في الأسفل --- */
+        .social-icons {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-btn:hover {
+            background: #4ECDC4;
+            transform: translateY(-5px);
+            border-color: #4ECDC4;
+        }
+
+        /* --- الصندوق الأيمن: الفورم --- */
+        .contact-form-box {
+            background: rgba(255, 255, 255, 0.05); /* لون أغمق قليلاً للتركيز */
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: inherit; /* لضمان نفس الخط */
+        }
+
+        /* تأثير عند الكتابة (Focus) */
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ECDC4;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.2);
+        }
+
+        /* زر الإرسال */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #4ECDC4, #2CB5AC);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+            background: linear-gradient(45deg, #2CB5AC, #4ECDC4);
+        }
+
+        /* --- الانيمشن --- */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- التجاوب مع الموبايل --- */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr; /* عمود واحد */
+            }
+            .contact-info-box {
+                margin-bottom: 20px; /* مسافة بين الصندوقين */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+
+    <nav class="navbar">
+        <div class="logo">Naim Musa</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="box" style="text-align: center; margin-bottom: 0; background: transparent; animation: fadeInDown 1s ease-out;">
+            <h2 style="font-size: 3rem; margin-bottom: 10px;">Get In Touch</h2>
+            <hr style="border: 0; height: 3px; background: #4ECDC4; width: 80px; margin: 0 auto 15px auto; border-radius: 2px;">
+            <p style="opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Have a project in mind or just want to say hi? Feel free to send me a message!
+            </p>
+        </div>
+
+        <div class="contact-wrapper">
+            
+            <div class="contact-info-box">
+                <h3 style="margin-bottom: 30px; font-size: 1.5rem;">Contact Info</h3>
+                
+                <div class="info-item">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>naimm2003musa@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Location</h4>
+                        <p>Düzce, Turkey</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+90 537 000 0000</p> </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <p style="margin-bottom: 15px; opacity: 0.8;">Find me on:</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1Fbq56BLe5/" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/naim-musaa%C4%9Fa-a05373255/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/naim_musa_aga?igsh=MXNqYWZid2JtYnkyZA==" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <form action="https://formsubmit.co/naimm2003musa@gmail.com" method="POST">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/contact.html">
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" placeholder="Project Inquiry" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Send Message <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; margin-top: 40px; color: var(--text-color); opacity: 0.7;">
+        <p>&copy; 2025 | Naim Musa</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

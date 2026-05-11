@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Naim Musa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- 1. تعريف الانيمشن --- */
+        
+        /* حركة الظهور من الأسفل */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* حركة دوران الأيقونة عند الهوفر */
+        @keyframes spinIcon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* --- 2. تنسيق الشبكة --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* --- 3. تصميم الكرت --- */
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 35px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة مرنة */
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* تأثير الهوفر على الكرت */
+        .service-card:hover {
+            transform: translateY(-15px); /* يرتفع أكثر */
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #4ECDC4; /* حدود ملونة */
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.2); /* ظل ملون */
+        }
+
+        /* --- 4. تنسيق الأيقونة --- */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .icon-box i {
+            font-size: 2rem;
+            color: #4ECDC4;
+            transition: all 0.4s ease;
+        }
+
+        /* الحركة عند الهوفر */
+        .service-card:hover .icon-box {
+            background: #4ECDC4;
+            box-shadow: 0 0 0 8px rgba(78, 205, 196, 0.15); /* هالة حول الدائرة */
+        }
+        
+        .service-card:hover .icon-box i {
+            color: #fff;
+            animation: spinIcon 0.6s ease-in-out; /* تطبيق حركة الدوران */
+        }
+
+        /* --- 5. النصوص --- */
+        .service-card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        /* تغيير لون العنوان عند الهوفر */
+        .service-card:hover h3 {
+            color: #4ECDC4;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.8;
+            color: #ccc;
+        }
+
+        /* --- 6. تأخير ظهور الكروت (Staggering) --- */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Naim Musa</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="box" style="animation: fadeInUp 0.8s ease-out forwards;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">What I Offer</h2>
+            <hr style="border: 0; height: 3px; background: #4ECDC4; width: 60px; margin: 0 auto 15px auto; border-radius: 2px;">
+            <p style="opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Delivering high-quality web solutions to help your business grow and stand out online.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            
+            <div class="service-card delay-1">
+                <div class="icon-box">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Building responsive and dynamic websites using modern technologies like HTML5, CSS3, and React.</p>
+            </div>
+
+            <div class="service-card delay-2">
+                <div class="icon-box">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <h3>Responsive Design</h3>
+                <p>Designing websites that adapt beautifully to any device, ensuring your site looks perfect on desktops and smartphones.</p>
+            </div>
+
+            <div class="service-card delay-3">
+                <div class="icon-box">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <h3>Creative Design</h3>
+                <p>Crafting visually appealing layouts and UI/UX designs that reflect your brand identity and engage your audience.</p>
+            </div>
+
+            <div class="service-card delay-4">
+                <div class="icon-box">
+                    <i class="fa-regular fa-lightbulb"></i>
+                </div>
+                <h3>Web Ideas & Strategy</h3>
+                <p>Providing innovative concepts and digital strategies to enhance website functionality and drive business growth.</p>
+            </div>
+
+            <div class="service-card delay-5">
+                <div class="icon-box">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3>Support & Maintenance</h3>
+                <p>Offering ongoing technical support, bug fixes, and website updates to keep your online presence running smoothly.</p>
+            </div>
+
+            <div class="service-card delay-6">
+                <div class="icon-box">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h3>Website Optimization</h3>
+                <p>Improving site performance, loading speed, and SEO structure to maximize reach and user satisfaction.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
