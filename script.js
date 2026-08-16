@@ -15,23 +15,26 @@ if (savedTheme) {
     updateButtonText('dark');
 }
 
-// 2. عند الضغط على الزر
-toggleButton.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    
-    if (currentTheme === 'dark') {
-        body.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        updateButtonText('light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        updateButtonText('dark');
-    }
-});
+// 2. عند الضغط على الزر (فقط إذا كان الزر موجود بالصفحة)
+if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            updateButtonText('light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            updateButtonText('dark');
+        }
+    });
+}
 
 // دالة لتغيير أيقونة الزر
 function updateButtonText(theme) {
+    if (!toggleButton) return;
     if (theme === 'dark') {
         toggleButton.innerHTML = '☀️ Light Mode';
     } else {
