@@ -13,6 +13,7 @@ A fast, hand-built portfolio site with 3D interactions, no frameworks and no bui
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-222222?logo=githubpages&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-4ECDC4)](LICENSE)
 
 <img src="docs/screenshots/home.jpg" alt="Portfolio home page" width="900">
 
@@ -95,6 +96,12 @@ Then open <http://localhost:5500>. You can also just open `index.html` directly 
 ```
 
 Add `class="reveal"` to any element to animate it in on scroll.
+
+## 📄 License
+
+The **source code** is released under the [MIT License](LICENSE), so feel free to learn from it or reuse it.
+
+The **personal content** is not covered by the license: my photo, the written bio and text, and the project screenshots. Please don't reuse them as your own.
 
 ## 📬 Contact
 
