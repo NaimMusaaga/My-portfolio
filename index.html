@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Naim Musa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <meta name="description" content="Naim Musa – Full-Stack Web Developer specializing in HTML, CSS, JavaScript, PHP, MySQL and Node.js.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1a1a'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='%234ECDC4' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 </head>
@@ -14,7 +14,7 @@
     <nav class="navbar">
         <div class="logo">Naim Musa</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
@@ -24,38 +24,40 @@
 
     <div class="container">
         
-        <div class="box" style="text-align: left;">
-            <div class="about-grid" style="align-items: center;">
-                <div class="about-col">
-                    <p><span class="text-highlight" style="font-size: 1.2rem;">Hi There, I'm</span></p>
-                    <h1 class="hero-title">Naim Musa</h1>
-                    <p style="font-size: 1.5rem; opacity: 0.8; margin-bottom: 20px;">Full-Stack Web Developer</p>
-                    
-                    <div style="margin-bottom: 25px; font-size: 1.5rem;">
-                        <a href="https://www.facebook.com/share/1Fbq56BLe5/" target="_blank" style="margin-right: 15px;">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/naim-musaa%C4%9Fa-a05373255/" target="_blank" style="margin-right: 15px;">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/naim_musa_aga?igsh=MXNqYWZid2JtYnkyZA==" target="_blank" style="margin-right: 15px;">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
+        <section class="box hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="hero-badge"><span class="dot"></span> Available for freelance work</span>
+                    <p class="hero-greeting">Hi there, I'm</p>
+                    <h1 class="hero-title">Naim <span class="gradient-text">Musa</span></h1>
+                    <p class="hero-role">Full-Stack Web Developer</p>
+                    <p class="hero-intro">
+                        I build fast, responsive websites and web apps — from clean front-end design
+                        to reliable back-ends with PHP, MySQL and Node.js. Based in Düzce, Turkey.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="portfolio.html" class="submit-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="contact.html" class="btn-outline">Contact Me <i class="fa-solid fa-paper-plane"></i></a>
                     </div>
-                    
-                    <a href="about.html" class="submit-btn" style="text-decoration: none; padding: 10px 25px; display: inline-block;">
-                        About Me <i class="fa-solid fa-circle-arrow-down"></i>
-                    </a>
+
+                    <div class="hero-socials">
+                        <a href="https://www.linkedin.com/in/naim-musaa%C4%9Fa-a05373255/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/NaimMusaaga" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/naim_musa_aga?igsh=MXNqYWZid2JtYnkyZA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1Fbq56BLe5/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
-                
-                <div class="about-col" style="text-align: center;">
-                    <img src="test10-removebg-preview.png" alt="Naim Musa" style="max-width: 100%; drop-shadow: 0 0 20px rgba(0,0,0,0.5);">
+
+                <div class="hero-photo">
+                    <div class="photo-frame">
+                        <img src="assets/images/naim.jpg" alt="Naim Musa">
+                    </div>
+                    <div class="float-chip chip-top"><i class="fa-solid fa-code"></i> Full-Stack</div>
+                    <div class="float-chip chip-bottom"><i class="fa-solid fa-graduation-cap"></i> Engineering</div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="box">
             <h2 style="margin-bottom: 20px;">Languages</h2>
@@ -91,67 +93,101 @@
             </div>
         </div>
 
-        <div class="box skills-section">
-            <h2>Skills & Abilities</h2>
-            <hr class="section-divider">
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <img src="html.jpg" alt="HTML">
-                    <h3>HTML</h3>
+        <section class="box skills-section">
+            <div class="skills-head">
+                <span class="section-tag">What I work with</span>
+                <h2>Skills &amp; Tech Stack</h2>
+                <p>The tools I use to design, build and ship full-stack web applications — from the first component to the live server.</p>
+            </div>
+
+            <div class="skill-groups">
+                <div class="skill-group">
+                    <div class="group-title">
+                        <span class="group-icon"><i class="fa-solid fa-palette"></i></span>
+                        <div>
+                            <h3>Frontend</h3>
+                            <p>Responsive, modern interfaces</p>
+                        </div>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="">HTML5</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="">CSS3</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="">JavaScript</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="">TypeScript</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="">React</span>
+                        <span class="chip"><img class="invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="">Next.js</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="">Tailwind CSS</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="">Vite</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <img src="css.jpg" alt="CSS">
-                    <h3>CSS</h3>
+
+                <div class="skill-group">
+                    <div class="group-title">
+                        <span class="group-icon"><i class="fa-solid fa-server"></i></span>
+                        <div>
+                            <h3>Backend</h3>
+                            <p>APIs, auth &amp; real-time features</p>
+                        </div>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="">Node.js</span>
+                        <span class="chip"><img class="invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="">Express</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="">PHP</span>
+                        <span class="chip"><img class="invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg" alt="">Socket.io</span>
+                        <span class="chip"><i class="fa-solid fa-plug"></i>REST APIs</span>
+                        <span class="chip"><i class="fa-solid fa-shield-halved"></i>JWT Auth</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <img src="js.jpg" alt="JavaScript">
-                    <h3>JavaScript</h3>
+
+                <div class="skill-group">
+                    <div class="group-title">
+                        <span class="group-icon"><i class="fa-solid fa-database"></i></span>
+                        <div>
+                            <h3>Databases</h3>
+                            <p>Relational data modeling</p>
+                        </div>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="">MySQL</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original.svg" alt="">MariaDB</span>
+                        <span class="chip"><i class="fa-solid fa-table"></i>SQL</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <img src="python.jpg" alt="Python">
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <img src="githup.jpg" alt="GitHub"> <h3>GitHub</h3>
-                </div>
-                <div class="skill-card">
-                    <img src="wordpress.jpg" alt="WordPress">
-                    <h3>WordPress</h3>
-                </div>
-                <div class="skill-card">
-                    <img src="c.jpg" alt="C">
-                    <h3>C</h3>
-                </div>
-                <div class="skill-card">
-                    <img src="c++.jpg" alt="C++">
-                    <h3>C++</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-php"></i>
-                    <h3>PHP</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-solid fa-database"></i>
-                    <h3>MySQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-node-js"></i>
-                    <h3>Node.js</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-solid fa-wind"></i>
-                    <h3>Tailwind CSS</h3>
+
+                <div class="skill-group">
+                    <div class="group-title">
+                        <span class="group-icon"><i class="fa-solid fa-rocket"></i></span>
+                        <div>
+                            <h3>DevOps &amp; Tools</h3>
+                            <p>Version control, testing &amp; deployment</p>
+                        </div>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
+                        <span class="chip"><img class="invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="">GitHub</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="">Linux</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="">Nginx</span>
+                        <span class="chip"><i class="fa-solid fa-cloud"></i>Oracle Cloud</span>
+                        <span class="chip"><i class="fa-solid fa-gears"></i>PM2</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg" alt="">Vitest</span>
+                        <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg" alt="" class="invert">WordPress</span>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div class="also-know">
+                <span>Also familiar with:</span>
+                <span class="chip small"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="">Python</span>
+                <span class="chip small"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="">C</span>
+                <span class="chip small"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="">C++</span>
+            </div>
+        </section>
 
         <footer style="text-align: center; padding: 20px; opacity: 0.7;">
-            <p>&copy; 2025 | Naim Musa</p>
+            <p>&copy; 2026 | Naim Musa</p>
         </footer>
 
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>

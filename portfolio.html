@@ -5,92 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Naim Musa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="A showcase of web development projects by Naim Musa, including LuxeTurkey, Kids Kitopia, and Shifa Clinic.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="Live projects by Naim Musa: the logai real-estate platform, the logai studio website, Shifa Clinic, LuxeTurkey and Kitopia.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1a1a'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='%234ECDC4' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 
     <style>
-        /* --- تنسيق الشبكة --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            padding-bottom: 50px;
-        }
-
-        /* --- تصميم كرت المشروع المطور --- */
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
+        .page-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
             position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .page-stats span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .page-stats i { color: var(--accent-color); }
+
+        /* =========================================
+           شاشة المتصفح الـ 3D حول صورة المشروع
+           ========================================= */
+        .browser {
+            border-radius: 14px;
+            overflow: hidden;
+            background: #10181c;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border-color: #4ECDC4;
-        }
-
-        .project-img-container {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             position: relative;
         }
 
-        .project-img-container img {
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: #1b262c;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .browser-bar i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .browser-bar i:nth-child(1) { background: #ff5f57; }
+        .browser-bar i:nth-child(2) { background: #febc2e; }
+        .browser-bar i:nth-child(3) { background: #28c840; }
+        .browser-bar span {
+            flex: 1;
+            margin-left: 10px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.75rem;
+            opacity: 0.6;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .browser img {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16 / 10;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            object-position: top;
         }
 
-        .project-card:hover .project-img-container img {
-            transform: scale(1.1);
+        /* لمعة تلحق الماوس */
+        .browser::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.14), transparent 50%);
         }
 
-        .project-info {
-            padding: 20px;
-            text-align: center;
+        /* =========================================
+           المشاريع المميزة (logai)
+           ========================================= */
+        .featured {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 50px;
+            align-items: center;
+            text-align: left;
+            padding: 45px;
+        }
+        .featured.flip .featured-media { order: 2; }
+
+        .project-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #D4B06A;
+            margin-bottom: 10px;
         }
 
-        .project-info h3 {
-            margin-bottom: 15px;
-            color: #fff;
-            font-size: 1.3rem;
+        .featured h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 14px; }
+        .featured p  { opacity: 0.8; line-height: 1.75; margin-bottom: 18px; }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 18px;
+            margin-bottom: 22px;
+        }
+        .feature-list li { display: flex; gap: 10px; font-size: 0.9rem; opacity: 0.85; }
+        .feature-list i { color: var(--accent-color); margin-top: 4px; font-size: 0.8rem; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .tags span {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(78, 205, 196, 0.12);
+            border: 1px solid rgba(78, 205, 196, 0.25);
+            color: var(--accent-color);
         }
 
-        .github-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: transparent;
-            color: #4ECDC4;
-            text-decoration: none;
-            border: 2px solid #4ECDC4;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+        .project-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .project-actions .submit-btn,
+        .project-actions .btn-outline { padding: 10px 22px; font-size: 0.92rem; }
+
+        /* =========================================
+           باقي المشاريع
+           ========================================= */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .work-grid > .reveal { perspective: 1200px; }
+
+        .work-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            padding: 16px;
+            text-align: left;
+            background: rgba(20, 30, 36, 0.55);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        .work-card:hover { border-color: rgba(78, 205, 196, 0.5); }
+
+        .work-card .browser { box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45); }
+
+        .work-body { padding: 20px 6px 6px; display: flex; flex-direction: column; flex: 1; }
+        .work-body h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .work-body p  { opacity: 0.75; line-height: 1.6; font-size: 0.92rem; margin-bottom: 16px; }
+        .work-body .tags { margin-bottom: 18px; }
+        .work-body .project-actions { margin-top: auto; }
+
+        .note {
+            display: block;
+            font-size: 0.75rem;
+            opacity: 0.55;
+            margin-top: 10px;
         }
 
-        .github-link:hover {
-            background: #4ECDC4;
-            color: #1a1a1a;
+        /* =========================================
+           CTA
+           ========================================= */
+        .work-cta { text-align: center; padding: 50px 30px; background: linear-gradient(135deg, rgba(78, 205, 196, 0.16), rgba(255, 107, 107, 0.08)), var(--glass-bg); }
+        .work-cta h2 { font-size: 2rem; margin-bottom: 10px; }
+        .work-cta p  { opacity: 0.8; margin-bottom: 25px; }
+        .work-cta .project-actions { justify-content: center; }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 1000px) {
+            .featured { grid-template-columns: 1fr; gap: 30px; padding: 30px 22px; }
+            .featured.flip .featured-media { order: 0; }
+            .work-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 640px) {
+            .work-grid { grid-template-columns: 1fr; }
+            .feature-list { grid-template-columns: 1fr; }
+            .featured h2 { font-size: 1.6rem; }
         }
-
-        /* تأخير ظهور الكروت */
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -106,57 +210,163 @@
         </div>
     </nav>
 
-    <section class="container">
-        <div class="box">
-            <h2 style="font-size: 2rem; margin-bottom: 10px;">My Projects</h2>
-            <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.2); width: 80px; margin-bottom: 30px;">
-            
-            <div class="portfolio-grid">
+    <div class="container">
 
-                <div class="project-card delay-1">
-                    <div class="project-img-container">
-                        <img src="LuxeTurkey.png" alt="LuxeTurkey Web Application">
-                    </div>
-                    <div class="project-info">
-                        <h3>LuxeTurkey Web</h3>
-                        <a href="https://github.com/NaimMusaaga/LuxeTurkey-Web.git" target="_blank" class="github-link">
-                            Visit GitHub <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card delay-2">
-                    <div class="project-img-container">
-                        <img src="Kitopia.png" alt="Kids Kitopia Platform">
-                    </div>
-                    <div class="project-info">
-                        <h3>Kids Kitopia</h3>
-                        <a href="https://github.com/NaimMusaaga/kids-Kitopia.git" target="_blank" class="github-link">
-                            Visit GitHub <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card delay-3">
-                    <div class="project-img-container">
-                        <img src="ŞİFADENT.png" alt="Shifa Clinic Management">
-                    </div>
-                    <div class="project-info">
-                        <h3>Shifa Clinic</h3>
-                        <a href="https://github.com/NaimMusaaga/shifa-clinic.git" target="_blank" class="github-link">
-                            Visit GitHub <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
+        <!-- HEADER -->
+        <section class="box page-head reveal">
+            <span class="section-tag">Portfolio</span>
+            <h1>Real projects, <span class="gradient-text">live on the web</span></h1>
+            <p>Every project here is deployed and running — open the live demo, click around, and check the code on GitHub.</p>
+            <div class="page-stats">
+                <span><i class="fa-solid fa-globe"></i> 5 live projects</span>
+                <span><i class="fa-solid fa-layer-group"></i> Full-stack &amp; front-end</span>
+                <span><i class="fa-brands fa-github"></i> Open source</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer style="text-align: center; padding: 20px; color: #fff; opacity: 0.7;">
-        <p>&copy; 2025 | Naim Musa</p>
+        <!-- FEATURED 1: logai real-estate platform -->
+        <section class="box featured reveal">
+            <div class="featured-media scene">
+                <div class="browser" data-tilt data-tilt-max="8">
+                    <div class="browser-bar"><i></i><i></i><i></i><span>logai-syria.duckdns.org</span></div>
+                    <img src="assets/images/projects/logai-syria.jpg" alt="logai real-estate platform homepage" loading="lazy">
+                </div>
+            </div>
+
+            <div>
+                <span class="project-label"><i class="fa-solid fa-star"></i> Featured · logai</span>
+                <h2>logai — Real-Estate &amp; Live Chat Platform</h2>
+                <p>
+                    A full-stack property portal: people search and list homes, shops and land, then chat with the owner in real time.
+                    Built end-to-end — database schema, REST API, real-time layer and a fully Arabic (RTL) interface — and deployed on a Linux cloud server.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check"></i>Live chat with Socket.IO</li>
+                    <li><i class="fa-solid fa-check"></i>Admin dashboard &amp; reports</li>
+                    <li><i class="fa-solid fa-check"></i>5-step listing wizard</li>
+                    <li><i class="fa-solid fa-check"></i>JWT auth &amp; photo uploads</li>
+                </ul>
+                <div class="tags">
+                    <span>React</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>Socket.IO</span><span>MariaDB</span><span>Tailwind</span><span>Nginx</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://logai-syria.duckdns.org/" target="_blank" rel="noopener" class="submit-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://github.com/NaimMusaaga/real-estate-platform" target="_blank" rel="noopener" class="btn-outline">GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED 2: logai studio website -->
+        <section class="box featured flip reveal">
+            <div class="featured-media scene">
+                <div class="browser" data-tilt data-tilt-max="8">
+                    <div class="browser-bar"><i></i><i></i><i></i><span>logai-website.vercel.app</span></div>
+                    <img src="assets/images/projects/logai-website.jpg" alt="logai studio website homepage" loading="lazy">
+                </div>
+            </div>
+
+            <div>
+                <span class="project-label"><i class="fa-solid fa-star"></i> Featured · logai</span>
+                <h2>logai — Studio Website</h2>
+                <p>
+                    The website for my own web-development studio. A bilingual Arabic / English site with a 3D hero, project showcases,
+                    clear service packages and a built-in FAQ assistant that guides visitors to WhatsApp.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check"></i>Arabic (RTL) &amp; English toggle</li>
+                    <li><i class="fa-solid fa-check"></i>3D hero &amp; device mockups</li>
+                    <li><i class="fa-solid fa-check"></i>FAQ chat assistant</li>
+                    <li><i class="fa-solid fa-check"></i>Case studies &amp; packages</li>
+                </ul>
+                <div class="tags">
+                    <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vercel</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://logai-website.vercel.app/" target="_blank" rel="noopener" class="submit-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://github.com/NaimMusaaga/logai-website" target="_blank" rel="noopener" class="btn-outline">GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER PROJECTS -->
+        <div class="section-head reveal" style="margin-top: 60px;">
+            <span class="section-tag">More work</span>
+            <h2>Other projects</h2>
+        </div>
+
+        <section class="work-grid">
+            <div class="reveal">
+                <article class="work-card" data-tilt data-tilt-max="6">
+                    <div class="browser depth-1">
+                        <div class="browser-bar"><i></i><i></i><i></i><span>shifa-clinic.infinityfree.io</span></div>
+                        <img src="assets/images/projects/shifa-clinic.jpg" alt="Shifa Clinic booking system" loading="lazy">
+                    </div>
+                    <div class="work-body">
+                        <h3>Shifa Clinic</h3>
+                        <p>A medical appointment booking system with separate doctor and patient interfaces and real-time scheduling.</p>
+                        <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+                        <div class="project-actions">
+                            <a href="https://shifa-clinic.infinityfree.io/" target="_blank" rel="noopener" class="submit-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/NaimMusaaga/shifa-clinic" target="_blank" rel="noopener" class="btn-outline">GitHub <i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="reveal">
+                <article class="work-card" data-tilt data-tilt-max="6">
+                    <div class="browser depth-1">
+                        <div class="browser-bar"><i></i><i></i><i></i><span>luxe-turkey-web.vercel.app</span></div>
+                        <img src="assets/images/projects/luxe-turkey.jpg" alt="LuxeTurkey real-estate website" loading="lazy">
+                    </div>
+                    <div class="work-body">
+                        <h3>LuxeTurkey</h3>
+                        <p>A fast, elegant real-estate listing and search site for properties in Istanbul and Antalya.</p>
+                        <div class="tags"><span>React</span><span>Tailwind CSS</span><span>Vercel</span></div>
+                        <div class="project-actions">
+                            <a href="https://luxe-turkey-web.vercel.app/" target="_blank" rel="noopener" class="submit-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/NaimMusaaga/LuxeTurkey-Web" target="_blank" rel="noopener" class="btn-outline">GitHub <i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="reveal">
+                <article class="work-card" data-tilt data-tilt-max="6">
+                    <div class="browser depth-1">
+                        <div class="browser-bar"><i></i><i></i><i></i><span>kitopia.onrender.com</span></div>
+                        <img src="assets/images/projects/kitopia.jpg" alt="Kitopia kids platform" loading="lazy">
+                    </div>
+                    <div class="work-body">
+                        <h3>Kitopia</h3>
+                        <p>A kids' platform with videos, bedtime audio stories and interactive games, plus a recommendation algorithm — in Arabic, English and Turkish.</p>
+                        <div class="tags"><span>React</span><span>Node.js</span><span>MySQL</span></div>
+                        <div class="project-actions">
+                            <a href="https://kitopia.onrender.com/" target="_blank" rel="noopener" class="submit-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/NaimMusaaga/kids-Kitopia" target="_blank" rel="noopener" class="btn-outline">GitHub <i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <span class="note"><i class="fa-regular fa-clock"></i> Free hosting — the first load may take ~30 seconds to wake up.</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="box work-cta reveal">
+            <h2>Like what you see?</h2>
+            <p>Let's build something similar for your business.</p>
+            <div class="project-actions">
+                <a href="contact.html" class="submit-btn">Start a Project <i class="fa-solid fa-paper-plane"></i></a>
+                <a href="https://github.com/NaimMusaaga" target="_blank" rel="noopener" class="btn-outline">All on GitHub <i class="fa-brands fa-github"></i></a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; padding: 20px; opacity: 0.7;">
+        <p>&copy; 2026 | Naim Musa</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/effects.js"></script>
 </body>
 </html>
